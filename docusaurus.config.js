@@ -8,7 +8,7 @@ module.exports = {
   projectName: 'install', // Usually your repo name.
   themeConfig: {
     navbar: {
-      title: 'install.disism.com',
+      title: 'INSTALL',
       logo: {
         alt: 'Tuetle',
         src: 'img/icons8-turtle.svg',

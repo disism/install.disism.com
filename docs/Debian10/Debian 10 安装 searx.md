@@ -9,7 +9,7 @@ sidebar_label: Debian 10 安装 searx
 
 > 假设你是一台新的 Debain 10 。
 
-Ⅰ. 安装所需软件
+###  1，安装所需的依赖项
 
 安装 `Git`
 
@@ -29,7 +29,7 @@ apt install python3-pip
 pip3 install virtualenv
 ```
 
-Ⅱ. 使用 Git 下载项目并创建虚拟环境: 进入到所建网站的目录
+### 2，使用 Git 下载项目并创建虚拟环境: 进入到所建网站的目录
 
 ```
 cd /usr/local
@@ -59,7 +59,7 @@ source venv/bin/activate
 (venv) root@ip xxxx:~# 
 ```
 
-Ⅲ. 安装 searx 所需要的依赖项，开启服务器
+### 3，安装 searx 所需要的依赖项，开启服务器
 
 ```
 pip3 install -r requirements.txt
@@ -73,9 +73,9 @@ python3 searx/webapp.py
 
 现在你的 searx 已经成功运行。
 
-Ⅳ. 生产环境
+### 4，开始搭建生产环境
 
-## **使用 uwsgi**
+#### ① 使用 uwsgi
 
 ```
 apt install uwsgi uwsgi-plugin-python3
@@ -142,7 +142,7 @@ ln -s ../apps-available/searx.ini
 /etc/init.d/uwsgi restart
 ```
 
-Ⅴ. 退出虚拟环境
+#### ② 退出虚拟环境
 
 ```
 deactivate
@@ -156,7 +156,7 @@ deactivate
 virtualenv --no-site-packages searx
 ```
 
-Ⅵ. 设置 NGINX
+#### ③ 设置 NGINX
 
 反代 8888 端口
 

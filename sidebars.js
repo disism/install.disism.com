@@ -12,8 +12,18 @@ module.exports = {
       'Debian10/how-to-install-mtproxy-on-debain10',
       'Debian10/how-to-install-searx-on-debain10',
       'Debian10/how-to-install-Synapse-on-debain10',
-      'Debian10/how-to-install-Mastodon-on-debain10'
+      'Debian10/how-to-install-Mastodon-on-debain10',
+      'Debian10/how-to-install-jekyll-on-debain10',
+      'Debian10/how-to-install-Lets-encrypt-on-debain10',
+      'Debian10/win10wsl-debian-9-update-debain10',
+      'Debian10/install-tensorflow-on-windows-10-wsl-debain10',
+      'Debian10/install-mariadb-on-debain10',
+      'Debian10/install-nginx-on-debain10',
+      'Debian10/install-php7.3-on-debain10',
+      'Debian10/install-shadowsocks-on-debain10'
     ],
-    Features: ['mdx'],
+    Commands: [
+      'Commands/linux-unzip',
+    ],
   },
 };

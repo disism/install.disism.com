@@ -5,56 +5,42 @@ sidebar_label: Debian 10 安装 Mastodon
 ---
 
 # Install Mastodon on Debian 10
-### 安装 Mastondon 所需要的软件包
+### 1，安装 Mastondon 所需要的软件包 / 依赖项
 
 install fail2ban
-
-
 
 ```
 apt install -y fail2ban
 ```
 
-## **install curl**
-
-
+install curl
 
 ```
 apt install -y curl
 ```
 
-## **install nodejs**
-
-
+install nodejs
 
 ```
 curl -sL https://deb.nodesource.com/setup_10.x | bash -
 ```
 
-
-
 ```
 apt install -y nodejs
 ```
 
-## **install yarn**
-
-
+install yarn
 
 ```
 curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
 echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
 ```
 
-
-
 ```
 apt update && apt install yarn
 ```
 
-## **install System packages**
-
-
+install System packages
 
 ```
 apt install -y \
@@ -66,21 +52,15 @@ apt install -y \
   libidn11-dev libicu-dev libjemalloc-dev
 ```
 
-## **Install Ruby**
-
-
+Install Ruby
 
 ```
 adduser --disabled-login mastodon
 ```
 
-
-
 ```
 su - mastodon
 ```
-
-
 
 ```
 git clone https://github.com/rbenv/rbenv.git ~/.rbenv
@@ -89,116 +69,85 @@ echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
 echo 'eval "$(rbenv init -)"' >> ~/.bashrc
 ```
 
-
-
 ```
 exec bash
 ```
-
-
 
 ```
 type rbenv
 ```
 
-
-
 ```
 git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
 ```
 
-See [ruby-version](https://github.com/tootsuite/mastodon/blob/master/.ruby-version) , if 2.6.1
-
-
+注意：请查看现在所依赖的版本 [ruby-version](https://github.com/tootsuite/mastodon/blob/master/.ruby-version) , 如 2.6.1 请使用如下配置，如果时 2.6.5 请修改成2.6.5
 
 ```
 RUBY_CONFIGURE_OPTS=--with-jemalloc rbenv install 2.6.1
-rbenv global 2.6.1
 ```
 
-
+```
+rbenv global 2.6.1
+```
 
 ```
 gem update --system
 ```
 
-
-
 ```
 gem install bundler --no-document
 ```
-
-
 
 ```
 exit
 ```
 
-## **Install PostgreSQL**
+Install PostgreSQL
 
 Install PostgreSQL-11 https://wiki.postgresql.org/wiki/Apt
-
-
 
 ```
 curl https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
 ```
 
-
-
 ```
 vim /etc/apt/sources.list.d/pgdg.list
 ```
-
-
 
 ```
 deb http://apt.postgresql.org/pub/repos/apt/ stretch-pgdg main
 ```
 
-
-
 ```
 apt update && apt upgrade -y
 ```
-
-
 
 ```
 apt install postgresql-11 pgadmin4
 ```
 
-## **Creating a user**
-
-
+创建一个用户
 
 ```
 sudo -u postgres psql
 ```
-
-
 
 ```
 CREATE USER mastodon CREATEDB;
 \q
 ```
 
-## **Install Mastodon**
-
-
+### 2，正式开始安装 Mastodon
 
 ```
 su - mastodon
 ```
 
-
-
 ```
 git clone https://github.com/tootsuite/mastodon.git live && cd live
 git checkout $(git tag -l | grep -v 'rc[0-9]*$' | sort -V | tail -n 1)
 ```
-
-
 
 ```
 bundle install \
@@ -207,21 +156,15 @@ bundle install \
   yarn install --pure-lockfile
 ```
 
-
-
 ```
 RAILS_ENV=production bundle exec rake mastodon:setup
 ```
-
-
 
 ```
 exit
 ```
 
-## **NGINX**
-
-
+### 3，配置 NGINX
 
 ```
 map $http_upgrade $connection_upgrade {
@@ -231,7 +174,7 @@ map $http_upgrade $connection_upgrade {
 server {
   listen 80;
   listen [::]:80;
-  server_name 域名;
+  server_name 你的域名;
   root /home/mastodon/live/public;
   # Useful for Let's Encrypt
   location /.well-known/acme-challenge/ { allow all; }
@@ -303,29 +246,19 @@ server {
 }
 ```
 
-## **Use Let’s Encrypt**
+###　4，配置　ＨＴＴＰＳ 加密
 
+请在该文档查询
 
-
-```
-在该文档中查询
-```
-
-## **Systemctl Service**
-
-
+### 5，设置 Systemctl Service 作为系统服务
 
 ```
 cd /etc/systemd/system/
 ```
 
-
-
 ```
 vim mastodon-web.service
 ```
-
-
 
 ```
 [Unit]
@@ -345,13 +278,9 @@ Restart=always
 WantedBy=multi-user.target
 ```
 
-
-
 ```
 vim mastodon-sidekiq.service
 ```
-
-
 
 ```
 [Unit]
@@ -370,13 +299,9 @@ Restart=always
 WantedBy=multi-user.target
 ```
 
-
-
 ```
 vim mastodon-streaming.service
 ```
-
-
 
 ```
 [Unit]
@@ -395,9 +320,9 @@ Restart=always
 WantedBy=multi-user.target
 ```
 
-
-
 ```
 systemctl start mastodon-web mastodon-sidekiq mastodon-streaming
 systemctl enable mastodon-*
 ```
+
+### 6，访问你配置的域名或 IP 应该已经显示安装成功
