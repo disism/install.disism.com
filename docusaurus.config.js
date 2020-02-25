@@ -5,7 +5,7 @@ module.exports = {
   baseUrl: '/',
   favicon: 'img/icons8-i.svg',
   organizationName: 'facebook', // Usually your GitHub org/user name.
-  projectName: 'docusaurus', // Usually your repo name.
+  projectName: 'install', // Usually your repo name.
   themeConfig: {
     navbar: {
       title: 'install.disism.com',
