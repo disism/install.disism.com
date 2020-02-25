@@ -1,7 +1,7 @@
 module.exports = {
   title: ' How to Install ?',
   tagline: 'DISISM LOVE NEW TECHNOLOGY',
-  url: 'https://your-docusaurus-test-site.com',
+  url: 'https://install.disism.com',
   baseUrl: '/',
   favicon: 'img/icons8-i.svg',
   organizationName: 'facebook', // Usually your GitHub org/user name.
