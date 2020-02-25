@@ -28,6 +28,11 @@ module.exports = {
         },
       ],
     },
+    algolia: {
+      apiKey: '1a546bf00a488cff36ce071111577448',
+      indexName: 'install-disism',
+      algoliaOptions: {}, // Optional, if provided by Algolia
+    },
     footer: {
       style: 'dark',
       links: [
@@ -35,26 +40,18 @@ module.exports = {
           title: 'Docs',
           items: [
             {
-              label: 'Style Guide',
+              label: 'Started',
               to: 'docs/welecome',
-            },
-            {
-              label: 'Second Doc',
-              to: 'docs/doc2',
-            },
+            }
           ],
         },
         {
           title: 'Community',
           items: [
             {
-              label: 'Stack Overflow',
-              href: 'https://stackoverflow.com/questions/tagged/docusaurus',
-            },
-            {
-              label: 'Discord',
-              href: 'https://discordapp.com/invite/docusaurus',
-            },
+              label: 'Issues',
+              href: 'https://github.com/disism/install.disism.com/issues',
+            }
           ],
         },
         {
@@ -66,16 +63,12 @@ module.exports = {
             },
             {
               label: 'GitHub',
-              href: 'https://github.com/facebook/docusaurus',
-            },
-            {
-              label: 'Twitter',
-              href: 'https://twitter.com/docusaurus',
-            },
+              href: 'https://github.com/disism/install.disism.com',
+            }
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} disism.com, Inc. Built with Docusaurus.`,
     },
   },
   presets: [
