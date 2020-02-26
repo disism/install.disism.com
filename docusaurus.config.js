@@ -1,6 +1,6 @@
 module.exports = {
-  title: ' How to Install ?',
-  tagline: 'DISISM LOVE NEW TECHNOLOGY',
+  title: ' How to Install xxx ?',
+  tagline: '',
   url: 'https://install.disism.com',
   baseUrl: '/',
   favicon: 'img/icons8-i.svg',

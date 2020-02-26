@@ -12,17 +12,17 @@ const features = [
     imageUrl: 'img/flamenco/flamenco-logged-out.svg',
     description: (
       <>
-        本站的所有教程均为中文编写，所以并不适合一些有经验的开发人员，但它应该适合一些
-        Linux 的爱好者和新手。所以并不推荐有经验的开发者。
+        本站的所有教程均为中文编写, 并不适合一些有经验的开发人员，但它应该适合一些
+        Linux 的爱好者和新手。
       </>
     ),
   },
   {
-    title: <>开源与独立</>,
+    title: <>开放</>,
     imageUrl: 'img/flamenco/flamenco-message-sent.svg',
     description: (
       <>
-        网站与文章的源代码托管在 Github ，欢迎你参与进来，一起帮助更多的人。感谢 
+        网站与文章的源代码托管在 Github ，欢迎您参与进来，一起帮助更多的人。同时感谢 
           <a href="https://www.netlify.com/"> netlify </a> 
           的免费托管服务和
           <a href="https://www.algolia.com/"> algolia </a> 
@@ -67,7 +67,7 @@ function Home() {
       <header className={classnames('hero hero--primary', styles.heroBanner)}>
         <div className="container">
           <h1 className="hero__title">{siteConfig.title}</h1>
-          <p className="hero__subtitle">{siteConfig.tagline}</p>
+          <p className="hero__subtitle">你该如何在 Linux 上部署生产环境？</p>
           <div className={styles.buttons}>
             <Link
               className={classnames(
@@ -75,7 +75,7 @@ function Home() {
                 styles.getStarted,
               )}
               to={useBaseUrl('docs/welecome')}>
-              Get Started
+              立即开始
             </Link>
           </div>
         </div>

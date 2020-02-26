@@ -30,5 +30,6 @@ pre {
   background-color: rgb(41, 45, 62);
 }
 button {
-  border-radius: 0 !important;
+  background-color: #dac9a6 !important;
+  border: 0 !important;
 }
