@@ -19,7 +19,7 @@ module.exports = {
         {
           href: 'https://disism.com',
           label: 'disism.com',
-          position: 'left',
+          position: 'right',
         },
         {
           href: 'https://github.com/disism/install.disism.com',
