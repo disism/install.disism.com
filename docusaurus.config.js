@@ -68,7 +68,7 @@ module.exports = {
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} disism.com, Inc. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} disism.com. Built with Docusaurus.`,
     },
   },
   presets: [
