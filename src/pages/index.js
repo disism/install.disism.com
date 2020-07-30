@@ -35,8 +35,7 @@ const features = [
     imageUrl: 'img/flamenco/flamenco-searching.svg',
     description: (
       <>
-        本网站是面向 Linux 新手和爱好者的学习网站，主要是为了解决人们在使用 Linux 作为生产环境部署时
-        出现的一些问题。
+          每个人都有权享有个人隐私和安全保障，为了让你更加安全的访问互联网，让数据放掌握在自己的手上。
       </>
     ),
   },
@@ -67,7 +66,7 @@ function Home() {
       <header className={classnames('hero hero--primary', styles.heroBanner)}>
         <div className="container">
           <h1 className="hero__title">{siteConfig.title}</h1>
-          <p className="hero__subtitle">你该如何在 Linux 上部署生产环境？</p>
+          <p className="hero__subtitle">你该如何在 Linux 部署更安全服务维护你自己的隐私？</p>
           <div className={styles.buttons}>
             <Link
               className={classnames(
